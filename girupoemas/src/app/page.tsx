@@ -14,7 +14,7 @@ export default function Home() {
       <div className="space-y-6">
         {poems.map((poem) => (
           <article key={poem.slug} className="group border-b border-gray-800 pb-4 last:border-0">
-            <Link href={`/poema/${poem.slug}`} className="block">
+            <Link href={`/poema/${poem.slug}/`} className="block">
               <h2 className="text-xl font-medium text-gray-200 group-hover:text-white transition-colors">
                 {poem.title}
               </h2>

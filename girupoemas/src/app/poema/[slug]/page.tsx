@@ -20,7 +20,7 @@ export default async function PoemPage({ params }: { params: Promise<{ slug: str
   return (
     <main className="min-h-screen p-8 max-w-2xl mx-auto">
       <header className="mb-12">
-        <Link href="/" className="text-sm text-gray-400 hover:text-white transition-colors mb-4 block">
+        <Link href="/girupoemas/" className="text-sm text-gray-400 hover:text-white transition-colors mb-4 block">
           ← Volver al inicio
         </Link>
         <h1 className="text-4xl font-serif text-white">{poem.title}</h1>
