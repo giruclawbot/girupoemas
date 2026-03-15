@@ -12,12 +12,12 @@
     - Elegir un país aleatorio que **NO** esté en la lista.
 4.  **Generar Poema:**
     - Crear un poema corto en formato Markdown sobre el país elegido.
-    - Nombre del archivo: `girupoemas/poema_<pais>.md` (ej. `poema_japon.md`).
+    - **IMPORTANTE:** El archivo debe incluir frontmatter con la fecha actual (YYYY-MM-DD).
+    - Nombre del archivo: `content/poema_<pais>.md` (ej. `content/poema_japon.md`).
 5.  **Publicar:**
-    - `cd girupoemas`
     - `git add .`
     - `git commit -m "Agregando poema diario: <pais> 📜"`
-    - `git push`
+    - `git push origin master`
 6.  **Actualizar Registros:**
     - Agregar el país a `memory/poem_countries.json`.
     - Registrar la fecha de hoy en `memory/daily_poem_log.json`.

@@ -7,11 +7,12 @@ const contentDirectory = path.join(process.cwd(), 'content');
 export interface PoemMetadata {
   title: string;
   slug: string;
+  date: string;
 }
 
 export function getAllPoems(): PoemMetadata[] {
   const fileNames = fs.readdirSync(contentDirectory);
-  return fileNames
+  const poems = fileNames
     .filter((fileName) => fileName.endsWith('.md'))
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, '');
@@ -21,8 +22,12 @@ export function getAllPoems(): PoemMetadata[] {
       return {
         slug,
         title: data.title || slug.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+        date: data.date || '1970-01-01',
       };
     });
+
+  // Sort by date (newest first)
+  return poems.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getPoemBySlug(slug: string) {
@@ -33,6 +38,7 @@ export function getPoemBySlug(slug: string) {
   return {
     slug,
     title: data.title || slug.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+    date: data.date || '1970-01-01',
     content,
   };
 }
